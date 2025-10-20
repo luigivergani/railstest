@@ -1,38 +1,66 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+ruby '3.3.6'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '~> 7.2.0'
 
-gem 'sqlite3'
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3', '~> 1.4'
 
+# Use the Puma web server
+gem 'puma', '~> 6.0'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+# Use JavaScript with ESM import maps
+gem 'importmap-rails'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platform => :ruby
+# Hotwire's SPA-like page accelerator
+gem 'turbo-rails'
 
-  gem 'uglifier', '>= 1.0.3'
+# Hotwire's modest JavaScript framework
+gem 'stimulus-rails'
+
+# Build JSON APIs with ease
+gem 'jbuilder'
+
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~> 5.0'
+
+# Use Kredis to get higher-level data types in Redis
+# gem 'kredis'
+
+# Use Active Model has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[ windows jruby ]
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', require: false
+
+# Use Active Storage variants
+# gem 'image_processing', '~> 1.2'
+
+group :development, :test do
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'debug', platforms: %i[ mri windows ]
 end
 
-gem 'jquery-rails'
+group :development do
+  # Use console on exceptions pages
+  gem 'web-console'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+  # Add speed badges
+  # gem 'rack-mini-profiler'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+  # Speed up commands on slow machines / big apps
+  # gem 'spring'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :test do
+  # Use system testing
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+# Asset pipeline
+gem 'sprockets-rails'
